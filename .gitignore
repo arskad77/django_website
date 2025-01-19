@@ -1,0 +1,22 @@
+# Django
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environments
+venv/
+env/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE files
+.idea/
+*.vscode/
+
+*.csv
+vacancies_2024.csv

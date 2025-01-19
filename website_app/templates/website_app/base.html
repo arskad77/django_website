@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Главная{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1 style="color: white;">Сайт о профессии "Backend-разработчик"</h1>
+    </header>
+    <div class="container">
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Главная</a></li>
+                    <li><a href="{% url 'statistics' %}" class="{% if request.resolver_match.url_name == 'statistics' %}active{% endif %}">Общая статистика</a></li>
+                    <li><a href="{% url 'popularity' %}" class="{% if request.resolver_match.url_name == 'popularity' %}active{% endif %}">Востребованность</a></li>
+                    <li><a href="{% url 'geography' %}" class="{% if request.resolver_match.url_name == 'geography' %}active{% endif %}">География</a></li>
+                    <li><a href="{% url 'skills' %}" class="{% if request.resolver_match.url_name == 'skills' %}active{% endif %}">Навыки</a></li>
+                    <li><a href="{% url 'backend_vacancies' %}" class="{% if request.resolver_match.url_name == 'backend_vacancies' %}active{% endif %}">Последние вакансии</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+    <footer>
+        <p>Кадочников Арсений Алексеевич</p>
+        <p>Группа: РИ-230913</p>
+    </footer>
+</body>
+</html>

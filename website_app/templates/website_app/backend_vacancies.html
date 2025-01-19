@@ -1,0 +1,24 @@
+{% extends 'website_app/base.html' %}
+{% load static %}
+
+{% block title %}Последние вакансии{% endblock %}
+
+{% block content %}
+    <h2>Последние вакансии для Backend-разработчиков</h2>
+    <ul style="list-style-type: none; padding-left: 0;">
+        {% for vacancy in vacancies %}
+            <li class="vacancy">
+                <h3><a href="{{ vacancy.url }}" target="_blank">{{ vacancy.name }}</a></h3>
+                <p><strong>Компания:</strong> {{ vacancy.company }}</p>
+                <p><strong>Регион:</strong> {{ vacancy.region }}</p>
+                <p><strong>Зарплата:</strong> {{ vacancy.salary }}</p>
+                <p><strong>Дата публикации:</strong> {{ vacancy.published_at }}</p>
+                <p><strong>Описание:</strong> {{ vacancy.description }}</p>
+                <p><strong>Навыки:</strong> {{ vacancy.skills }}</p>
+            </li>
+        {% empty %}
+            <p>Вакансии не найдены.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
